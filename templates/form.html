@@ -2,41 +2,45 @@
 <html>
 <head>
     <title>Flavorsense Predictions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <h2>Get your taste profile!</h2>
-    <form action="/predict" method="post">
-        <label>Age: <input type="number" name="age" /></label><br>
-        <label>Sleep Cycle:
-            <select name="sleep_cycle">
-                <option value="Early Bird">Early Bird</option>
-                <option value="Night Owl">Night Owl</option>
-                <option value="Irregular">Irregular</option>
-            </select>
-        </label><br>
-        <label>Exercise Habits:
-            <select name="exercise_habits">
-                <option value="Light">Light</option>
-                <option value="Moderate">Moderate</option>
-                <option value="Heavy">Heavy</option>
-            </select>
-        </label><br>
-        <label>Climate Zone:
-            <select name="climate_zone">
-                <option value="Dry">Dry</option>
-                <option value="Cold">Cold</option>
-                <option value="Temperate">Temperate</option>
-                <option value="Tropical">Tropical</option>
-            </select>
-        </label><br>
-        <label>Historical Cuisine Exposure:
-            <select name="historical_cuisine_exposure">
-                <option value="Asian">Asian</option>
-                <option value="Mediterranean">Mediterranean</option>
-                <option value="Mixed">Mixed</option>
-            </select>
-        </label><br>
-        <button type="submit">Submit</button>
-    </form>
+    <div class="container">
+        <h2>Get your taste profile!</h2>
+        <form action="/predict" method="post">
+            <label>Age: <input type="number" name="age" /></label>
+            <label>Sleep Cycle:
+                <select name="sleep_cycle">
+                    <option value="Early Bird">Early Bird</option>
+                    <option value="Night Owl">Night Owl</option>
+                    <option value="Irregular">Irregular</option>
+                </select>
+            </label>
+            <label>Exercise Habits:
+                <select name="exercise_habits">
+                    <option value="Light">Light</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="Heavy">Heavy</option>
+                </select>
+            </label>
+            <label>Climate Zone:
+                <select name="climate_zone">
+                    <option value="Dry">Dry</option>
+                    <option value="Cold">Cold</option>
+                    <option value="Temperate">Temperate</option>
+                    <option value="Tropical">Tropical</option>
+                </select>
+            </label>
+            <label>Historical Cuisine Exposure:
+                <select name="historical_cuisine_exposure">
+                    <option value="Asian">Asian</option>
+                    <option value="Mediterranean">Mediterranean</option>
+                    <option value="Mixed">Mixed</option>
+                </select>
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
