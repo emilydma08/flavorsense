@@ -88,8 +88,17 @@ def predict():
     with torch.no_grad():
         output = model(input_tensor)
         prediction = torch.argmax(output, dim=1).item()
+    
+    label_map = {
+    0: 'Sweet',
+    1: 'Spicy',
+    2: 'Sour',
+    3: 'Salty',
+    }
 
-    return render_template("result.html", prediction=prediction)
+    category = label_map[prediction]
+    return render_template("result.html", prediction=category)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body{
+            background-color: beige;
+        }
+    </style>
 </head>
 <body>
-    <h2>Your Predicted Taste Profile:</h2>
-    <p>Predicted class: {{ prediction }}</p>
-    <a href="/">Back to form</a>
+    <div class="container">
+        <h2>Your Predicted Taste Profile:</h2>
+        <p class="prediction">{{ prediction }}</p>
+        <a href="/" class="back-link">Back to form</a>
+    </div>
 </body>
 </html>

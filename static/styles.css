@@ -2,8 +2,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #000000;
-    color: #FFFFFF;
+    background-color: #FFFFFF;
+    color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,24 +11,37 @@ body {
     margin: 0;
 }
 
-h2 {
-    color: #FF8C00; /* Bright Orange */
+.container {
+    background-color: #f9f9f9;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
     text-align: center;
 }
 
+h2 {
+    color: #228B22; /* Jungle Green */
+    margin-right: 4vw;
+}
+
 form {
-    background-color: #228B22; /* Jungle Green */
-    padding: 2em;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 500px;
+    margin-top: 2em;
+    
+}
+
+.page{
+    border: 2px dotted black;
+    background-color: beige;
+    padding: 2vh 5vw;
 }
 
 label {
     display: block;
     margin-bottom: 1em;
-    color: #FFFFFF;
+    color: #333;
+    text-align: left;
 }
 
 input, select {
@@ -38,26 +51,63 @@ input, select {
     border-radius: 5px;
     box-sizing: border-box;
     margin-top: 0.5em;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #FF8C00; /* Bright Orange */
+    outline: none;
 }
 
 button {
     width: 100%;
     padding: 1em;
-    background-color: #FF8C00; /* Bright Orange */
-    color: #000000;
+    background-color: #228B22; /* Jungle Green */
+    color: #FFFFFF;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #FF8C00; /* Bright Orange */
 }
 
 @media (max-width: 600px) {
-    body {
-        align-items: flex-start;
-        padding: 1em;
-    }
-
-    form {
+    .container {
         padding: 1.5em;
     }
+}
+
+.prediction {
+    font-size: 2em;
+    font-weight: 600;
+    color: #FF8C00; /* Bright Orange */
+    margin: 1em 0;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 1em;
+    color: #228B22; /* Jungle Green */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #FF8C00; /* Bright Orange */
 }
