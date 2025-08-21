@@ -4,6 +4,7 @@ import torch.nn as nn
 import joblib
 import numpy as np
 import pandas as pd
+import os
 
 app = Flask(__name__)
 
@@ -100,5 +101,5 @@ def predict():
     return render_template("result.html", prediction=category)
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))

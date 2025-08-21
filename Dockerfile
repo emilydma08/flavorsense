@@ -1,19 +1,28 @@
-# Use official Python 3.11 slim image
-FROM python:3.11.9-slim
+# Use an official Python base image
+FROM python:3.11-slim
 
-# Set working directory in container
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Set working directory
 WORKDIR /app
 
-# Copy requirements file and install dependencies
+# Copy requirements first for caching
 COPY requirements.txt .
 
-RUN pip install --no-cache-dir -r requirements.txt
+# Install system dependencies and Python packages
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential \
+        && pip install --no-cache-dir -r requirements.txt \
+        && apt-get clean \
+        && rm -rf /var/lib/apt/lists/*
 
-# Copy the rest of your app code
+# Copy the rest of the app code
 COPY . .
 
-# Expose the port your Flask app runs on (Render default is 10000)
-EXPOSE 10000
+# Expose the port Flask runs on
+EXPOSE 5000
 
-# Command to run your app with Gunicorn on port 10000
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:10000"]
+# Run the Flask app
+CMD ["python", "app.py"]
