@@ -51,6 +51,10 @@ model.load_state_dict(torch.load("best_model.pth", map_location=torch.device("cp
 model.eval()
 
 @app.route('/')
+def landing():
+    return render_template('landing.html')
+
+@app.route('/form')
 def form():
     return render_template('form.html')
 
